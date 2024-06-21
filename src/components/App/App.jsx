@@ -1,29 +1,40 @@
-import { Suspense, lazy, useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { Navigate, Route, Routes } from "react-router-dom";
-import { refreshToken } from "../../redux/auth/operations.js";
-import { RestrictedRoute } from "../Routes/RestrictedRoute";
-import { Toaster } from "react-hot-toast";
-import { PrivateRoute } from "../Routes/PrivateRoute";
-import { refreshUser } from "../../redux/user/operations.js";
+import { Suspense, lazy, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Navigate, Route, Routes } from 'react-router-dom';
+import { refreshToken } from '../../redux/auth/operations.js';
+import { RestrictedRoute } from '../Routes/RestrictedRoute';
+import { Toaster } from 'react-hot-toast';
+import { PrivateRoute } from '../Routes/PrivateRoute';
+import { refreshUser } from '../../redux/user/operations.js';
+import { selectIsError } from '../../redux/user/selectors.js';
+import { handleLogOut } from '../../redux/auth/slice.js';
+import { selectIsLoggedIn } from '../../redux/auth/selectors.js';
+import { fetchBoards } from '../../redux/board/operations.js';
 
-const WelcomePage = lazy(() => import("../../pages/WelcomePage/WelcomePage"));
-const AuthPage = lazy(() => import("../../pages/AuthPage"));
-const RegisterForm = lazy(() => import("../RegisterForm/RegisterForm"));
-const LoginForm = lazy(() => import("../LoginForm/LoginForm"));
-const HomePage = lazy(() => import("../../pages/HomePage"));
-const BoardPage = lazy(() => import("../../pages/BoardPage"));
+const WelcomePage = lazy(() => import('../../pages/WelcomePage/WelcomePage'));
+const AuthPage = lazy(() => import('../../pages/AuthPage'));
+const RegisterForm = lazy(() => import('../RegisterForm/RegisterForm'));
+const LoginForm = lazy(() => import('../LoginForm/LoginForm'));
+const HomePage = lazy(() => import('../../pages/HomePage'));
+const BoardPage = lazy(() => import('../../pages/BoardPage'));
 const NotFoundPage = lazy(() =>
-  import("../../pages/NotFoundPage/NotFoundPage")
+  import('../../pages/NotFoundPage/NotFoundPage'),
 );
 
 export default function App() {
   const dispatch = useDispatch();
+  const isLoggedIn = useSelector(selectIsLoggedIn);
 
   useEffect(() => {
     dispatch(refreshToken());
-    dispatch(refreshUser());
   }, [dispatch]);
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      dispatch(refreshUser());
+      dispatch(fetchBoards());
+    }
+  }, [dispatch, isLoggedIn]);
 
   return (
     <div>

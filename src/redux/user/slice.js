@@ -57,6 +57,7 @@ const userSlice = createSlice({
       })
       .addCase(refreshUser.rejected, state => {
         state.loading = false;
+
         state.error = true;
       })
       .addCase(setAvatarUrl.pending, state => {
