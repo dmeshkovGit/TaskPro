@@ -1,0 +1,22 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+	margin: var(--margin);
+}
+
+ul,
+ol {
+	list-style: none;
+	margin: var(--margin);
+	padding: var(--padding);
+}
+
+img {
+	display: block;
+	max-width: 100%;
+	/* height: auto; */
+}

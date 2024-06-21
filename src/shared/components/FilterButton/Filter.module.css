@@ -1,0 +1,208 @@
+.filterBtn {
+  display: flex;
+  margin-right: 20px;
+  margin-left: auto;
+  margin-top: 14px;
+  color: var(--input-text);
+  background-color: inherit;
+  border: none;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  line-height: 0;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.filterIcon {
+  stroke: var(--input-text);
+  transition: stroke 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  fill: none;
+}
+.filterBtn:hover {
+  color: var(--accent-color-hover);
+}
+
+.filterBtn:hover .filterIcon {
+  stroke: var(--accent-color-hover);
+}
+
+@media (min-width: 768px) {
+  .filterBtn {
+    display: flex;
+    margin-right: 32px;
+    margin-left: auto;
+    margin-top: 20px;
+  }
+}
+
+@media only screen and (min-width: 320px) {
+  .dropdown {
+    display: inline-block;
+    position: relative;
+  }
+
+  .dropdown {
+    display: inline-block;
+    position: relative;
+  }
+
+  .dropdownMenu {
+    padding: 24px;
+    position: absolute;
+    top: 100%;
+    right: 32px;
+    border: 1px solid var(--accent-color);
+    border-radius: 8px;
+    width: 300px;
+    min-height: 186px;
+    background: var(--cards-color);
+    box-shadow: 0 4px 16px 0 rgba(17, 17, 17, 0.1);
+    z-index: 1;
+  }
+  .titleWrapper {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .titleFilter {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 27px;
+    letter-spacing: -0.02em;
+    /* margin-bottom: 14px; */
+  }
+
+  .line {
+    border: 0.5px solid var(--trash);
+    margin-bottom: 14px;
+  }
+
+  .resetBtnWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 14px;
+  }
+
+  .filterName {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 21px;
+    letter-spacing: -0.02em;
+  }
+
+  .showAll {
+    text-decoration: underline;
+    padding: 0;
+    background: transparent;
+    border: none;
+    color: var(--trash);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: -0.02em;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .showAll:hover {
+    color: var(--accent-color-hover);
+  }
+
+  .inputWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    gap: 8px;
+  }
+
+  .customRadio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    width: 12px;
+    height: 12px;
+    border: 1px solid var(--accent-color-hover);
+    border-radius: 50%;
+    padding: 0px;
+  }
+
+  .customRadioDot {
+    background-color: var(--accent-color-hover);
+    border: none;
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    transition: width 250ms cubic-bezier(0.4, 0, 0.2, 1),
+      height 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .checkedRadioDot {
+    width: 8px;
+    height: 8px;
+  }
+
+  .withoutPriority {
+    border-color: var(--trash);
+  }
+
+  .withoutPriority > .customRadioDot {
+    background-color: var(--trash);
+  }
+
+  .lowPriority {
+    border-color: var(--board-section-low);
+  }
+
+  .lowPriority > .customRadioDot {
+    background-color: var(--board-section-low);
+  }
+
+  .mediumPriority {
+    border-color: var(--board-section-medium);
+  }
+
+  .mediumPriority > .customRadioDot {
+    background-color: var(--board-section-medium);
+  }
+
+  .highPriority {
+    border-color: var(--board-section-high);
+  }
+
+  .highPriority > .customRadioDot {
+    background-color: var(--board-section-high);
+  }
+
+  .radioLabel {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: -0.02em;
+    color: var(--trash);
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    gap: 8px;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .radioLabel:hover {
+    color: #ffffff;
+  }
+
+  .checkedRadioLabel {
+    color: #ffffff;
+  }
+
+  .radioInput {
+    margin-right: 10px;
+    display: none;
+    position: absolute;
+  }
+}

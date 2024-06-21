@@ -1,0 +1,126 @@
+@media (min-width: 320px) {
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    color: inherit;
+    cursor: pointer;
+    padding-left: 14px;
+    padding-right: 14px;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    box-sizing: border-box;
+  }
+  .icon {
+    /* stroke: rgb(255, 255, 255, 0.5); */
+    transition: stroke 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    fill: none;
+    stroke: var(--grey-text);
+    &:hover {
+      stroke: var(--side-text);
+    }
+  }
+
+  .container:hover {
+    color: var(--side-text);
+  }
+  .container:hover .icon {
+    stroke: var(--side-text);
+    fill: none;
+  }
+
+  .wrapper {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    line-height: 0;
+  }
+  .btnWrapper {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+  }
+  .iconBtn {
+    width: 16px;
+    height: 16px;
+    fill: none;
+    stroke: var(--grey-text);
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .iconBtn:hover {
+    stroke: var(--accent-color);
+  }
+
+  .btn {
+    display: none;
+  }
+  .activeBtn {
+    display: block;
+    padding: 0;
+    background-color: inherit;
+    border: none;
+    stroke: var(--main-text-color);
+  }
+  .activeBtn:hover {
+    display: block;
+    padding: 0;
+    background-color: inherit;
+    border: none;
+    stroke: var(--accent-color);
+  }
+  .activeIcon {
+    stroke: var(--side-text);
+  }
+
+  .modalWindowContent {
+    /* position: absolute; */
+    border: 1px solid var(--accent-color);
+    border-radius: 8px;
+    width: 335px;
+    box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.05);
+    background: var(--third-background-color);
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    width: 260px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  .wrapper {
+    gap: 8px;
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 1050;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-y: auto;
+  }
+
+  .modalWindowContent {
+    width: 350px;
+  }
+}
+
+.title {
+  color: var(--grey-text);
+  &:hover {
+    color: var(--side-text);
+  }
+}
+
+.activeTitle {
+  color: var(--side-text);
+}

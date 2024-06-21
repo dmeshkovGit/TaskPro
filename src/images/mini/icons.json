@@ -1,0 +1,58 @@
+[
+  {
+    "value": "icon-projects",
+    "id": "icon-projects",
+    "alt": "icon-projects",
+    "width": "18px",
+    "height": "18px"
+  },
+  {
+    "value": "icon-star",
+    "id": "icon-star",
+    "alt": "icon-star",
+    "width": "18px",
+    "height": "18px"
+  },
+  {
+    "value": "icon-loading",
+    "id": "icon-loading",
+    "alt": "icon-loading",
+    "width": "18px",
+    "height": "18px"
+  },
+  {
+    "value": "icon-puzzle",
+    "id": "icon-puzzle",
+    "alt": "icon-puzzle",
+    "width": "18px",
+    "height": "18px"
+  },
+  {
+    "value": "icon-container",
+    "id": "icon-container",
+    "alt": "icon-container",
+    "width": "18px",
+    "height": "18px"
+  },
+  {
+    "value": "icon-lightning",
+    "id": "icon-lightning",
+    "alt": "icon-lightning",
+    "width": "18px",
+    "height": "18px"
+  },
+  {
+    "value": "icon-colors",
+    "id": "icon-colors",
+    "alt": "icon-colors",
+    "width": "18px",
+    "height": "18px"
+  },
+  {
+    "value": "icon-hexagon",
+    "id": "icon-hexagon",
+    "alt": "icon-hexagon",
+    "width": "18px",
+    "height": "18px"
+  }
+]

@@ -1,0 +1,39 @@
+.scroll {
+  max-height: 335px;
+  overflow-y: auto;
+  margin-bottom: -16px;
+  scrollbar-width: thin;
+  border: none;
+  scrollbar-color: var(--color-scroll) var(--board-title-wrap);
+}
+
+@media only screen and (min-width: 768px) {
+  .scroll {
+    max-height: 704px;
+    overflow-y: auto;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .scroll {
+    max-width: 1132px;
+    overflow-y: auto;
+  }
+}
+
+.scroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scroll::-webkit-scrollbar-track {
+  background: var(--board-title-wrap);
+  border: none;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+  background-color: var(--color-scroll);
+}
+
+/* .scroll::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+} */

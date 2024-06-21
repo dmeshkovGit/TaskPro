@@ -1,0 +1,35 @@
+@media (min-width: 320px) {
+  .title {
+    font-size: 16px;
+    text-align: center;
+    color: var(--side-text);
+  }
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: baseline;
+    margin-bottom: 60px;
+    gap: 8px;
+    margin-left: 14px;
+    margin-top: 14px;
+  }
+  .wrapper {
+    width: 32px;
+    height: 32px;
+    background-color: var(--logo);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+  }
+  .icon {
+    fill: var(--logo-fill);
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    margin-left: 24px;
+    margin-top: 24px;
+    margin-bottom: 70px;
+  }
+}

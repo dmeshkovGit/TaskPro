@@ -1,0 +1,67 @@
+.wrapperSwitch {
+  position: relative;
+  height: 16px;
+  width: 16px;
+}
+
+.switchBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0px;
+}
+
+.iconSwitch {
+  stroke: var(--item-theme);
+  transition: stroke 0.3s ease;
+  fill: none;
+}
+.iconSwitch:hover {
+  stroke: var(--accent-color);
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: 150%;
+  left: -20%;
+  border: 1px solid var(--accent-color);
+  border-radius: 8px;
+  width: 135px;
+  min-height: 86px;
+  background: var(--hover-background-color);
+  box-shadow: 0 4px 16px 0 rgba(17, 17, 17, 0.1);
+  z-index: 1;
+}
+
+.dropdownItem {
+  background: none;
+  border: none;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding: 0px;
+}
+
+.dropdownItem:hover .iconSwitch,
+.dropdownItem:focus .iconSwitch,
+.dropdownItem:active .iconSwitch {
+  stroke: var(--accent-color);
+}
+.textDrop {
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  color: var(--item-theme);
+}
+
+.textDrop:hover {
+  color: var(--accent-color);
+}
+
+.menuWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 18px;
+}

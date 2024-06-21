@@ -1,0 +1,27 @@
+.column {
+  border-radius: 5px;
+  width: 335px;
+  flex-shrink: 0;
+}
+
+.cards {
+  margin-top: 10px;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  transform: translate(-50%, -50%);
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+}

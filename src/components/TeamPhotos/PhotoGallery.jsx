@@ -1,0 +1,53 @@
+import styles from './PhotoGallery.module.css';
+
+export const PhotoGallery = () => {
+  const photos = [
+    { id: 1, src: '/team/Bohdana_Radyk.webp', alt: 'Bohdana Radyk', link: '' },
+    {
+      id: 2,
+      src: '/team/Dmytro_Meshkov.webp',
+      alt: 'Dmytro Meshkov',
+      link: '',
+    },
+    { id: 3, src: '/team/Igor Bovt.webp', alt: 'Igor Bovt', link: '' },
+    { id: 4, src: '/team/Ivan_Buzin.webp', alt: 'Ivan Buzin', link: '' },
+    { id: 5, src: '/team/Jenya Pozniak.webp', alt: 'Jenya Pozniak', link: '' },
+    { id: 6, src: '/team/Marina_Nazina.webp', alt: 'Marina Nazina', link: '' },
+    {
+      id: 7,
+      src: '/team/Markian_Murdza.webp',
+      alt: 'Markian Murdza',
+      link: '',
+    },
+    {
+      id: 8,
+      src: '/team/Oleksii_Yarina.webp',
+      alt: 'Oleksii Yarina',
+      link: '',
+    },
+    { id: 9, src: '/team/Roma Boyko.webp', alt: 'Roma Boyko', link: '' },
+    {
+      id: 10,
+      src: '/team/Sergey Mironenko.webp',
+      alt: 'Sergey Mironenko',
+      link: '',
+    },
+  ];
+
+  return (
+    <div className={styles.gallery}>
+      {photos.map(photo => (
+        <div key={photo.id} className={styles.photoItem}>
+          <img
+            src={photo.src}
+            alt={photo.alt}
+            className={styles.photo}
+            width="150px"
+            height="100px"
+          />
+          <p className={styles.caption}>{photo.alt}</p>
+        </div>
+      ))}
+    </div>
+  );
+};

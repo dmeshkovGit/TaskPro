@@ -1,0 +1,262 @@
+.addCardForm {
+  background-color: var(--main-background-color);
+  padding: 24px;
+  border-radius: 8px;
+  border: 1px solid var(--accent-color);
+  width: 287px;
+  height: 474px;
+  position: relative;
+}
+
+.title {
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: -0.02em;
+  color: var(--main-text-color);
+  margin-bottom: 24px;
+}
+
+.formGroupTitle {
+  border: 1px solid var(--accent-color);
+  border-radius: 8px;
+  width: 287px;
+  height: 49px;
+  margin-bottom: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.formGroupTitle input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 8px;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: var(--active-background-color);
+  color: var(--main-text-color);
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  padding-left: 20px;
+  padding-top: 20px;
+  &:focus {
+    outline: none;
+  }
+}
+
+.formGroupTitle input::placeholder {
+  color: #999;
+  opacity: 1;
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.formGroupDescription {
+  border: 1px solid var(--accent-color);
+  border-radius: 8px;
+  width: 287px;
+  height: 154px;
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.formGroupDescription textarea {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 8px;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: var(--active-background-color);
+  color: var(--main-text-color);
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  padding-left: 20px;
+  padding-top: 20px;
+  outline: none;
+}
+
+.formGroupDescription textarea::placeholder {
+  color: #999;
+  opacity: 1;
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.formGroupLabelcolor {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.formGroupLabelcolor label {
+  margin-bottom: 4px;
+  color: #999;
+  font-weight: 400;
+  font-size: 12px;
+}
+
+.labelColors {
+  display: flex;
+  gap: 8px;
+}
+
+.labelColor {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.labelColor input[type='radio'] {
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  cursor: pointer;
+  position: absolute;
+}
+
+.labelColor.low {
+  background-color: var(--board-section-low);
+}
+
+.labelColor.medium {
+  background-color: var(--board-section-medium);
+}
+
+.labelColor.high {
+  background-color: var(--board-section-high);
+}
+
+.labelColor.without {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.labelColor.selected {
+  border-color: var(--secondary-color);
+}
+
+.formGroupDeadline {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.formGroupDeadline label {
+  margin-bottom: 4px;
+  color: #999;
+  font-weight: 400;
+  font-size: 12px;
+}
+
+.addButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--accent-color);
+  color: var(--main-background-color);
+  padding: 0;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 287px;
+  height: 49px;
+  margin-top: 35px;
+}
+
+.addButton:hover {
+  background-color: var(--accent-color);
+}
+
+.iconContainer {
+  width: 28px;
+  height: 28px;
+  background-color: var(--edit-plus);
+  border-radius: 5px;
+  margin-right: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.icon {
+  stroke: var(--plus-icon);
+}
+.closeButton {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--main-text-color);
+}
+/* стили для календаря */
+
+.input {
+  border: none;
+  width: 70px;
+  background: transparent;
+  font-size: 16px;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  color: var(--accent-color);
+  cursor: pointer;
+}
+
+.datepicker {
+  border-radius: 8px;
+  background-color: #f0f0f0;
+}
+
+.customCalendarHeader {
+  background-color: #333;
+  color: white;
+}
+
+.daySelected {
+  background-color: #007bff;
+  color: white;
+}
+
+.dateInput {
+  display: flex;
+  align-items: center;
+}
+
+.iconArrow {
+  fill: var(--accent-color);
+  stroke: var(--accent-color);
+  cursor: pointer;
+}
+
+.datePicker {
+  background-color: #312828;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.customCalendarHeader {
+  background-color: #007bff;
+}

@@ -1,0 +1,52 @@
+.addButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--accent-color);
+  border: none;
+  border-radius: 8px;
+  width: 335px;
+  height: 56px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--side-text);
+  transition: background-color 0.3s ease;
+  margin-top: 14px;
+}
+
+.addButton:hover {
+  background-color: var(--accent-color);
+  &:hover {
+    background-color: var(--accent-color-hover);
+  }
+}
+
+.iconContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background-color: var(--edit-plus);
+  border-radius: 5px;
+  margin-right: 8px;
+}
+.icon {
+  stroke: var(--plus-icon);
+}
+
+.Modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Modal .modalContent {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px;
+  position: relative;
+}

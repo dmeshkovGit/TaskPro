@@ -1,0 +1,10 @@
+@media (min-width: 325) {
+  .wrapper {
+    height: 100%;
+  }
+}
+@media (min-width: 1024px) {
+  .wrapper {
+    display: flex;
+  }
+}

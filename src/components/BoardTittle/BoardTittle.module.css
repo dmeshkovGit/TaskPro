@@ -1,0 +1,26 @@
+.wrap_title {
+  border-radius: 8px;
+  margin-top: 14px;
+  margin-left: 20px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--board-title-wrap);
+}
+
+@media (min-width: 320px) {
+  .title {
+    font-size: 18px;
+    color: var(--border-title2);
+    font-weight: 500;
+    letter-spacing: 0.2;
+    padding: 8px;
+  }
+}
+@media (min-width: 768px) {
+  .title {
+    font-size: 18px;
+    padding: 10px;
+  }
+}
