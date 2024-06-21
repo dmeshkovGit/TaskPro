@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 import WorkPlace from '../components/WorkPlace/WorkPlace';
 import { useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchBoards, getBoardById } from '../redux/board/operations';
+import { getBoardById } from '../redux/board/operations';
 import { selectBoard } from '../redux/board/selectors';
 
 export default function BoardPage() {
@@ -23,7 +23,6 @@ export default function BoardPage() {
   }, [location.pathname]);
 
   useEffect(() => {
-    dispatch(fetchBoards());
     if (id !== null) {
       dispatch(getBoardById(id));
     }

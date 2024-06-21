@@ -32,7 +32,7 @@ export const logIn = createAsyncThunk(
       setAuthHeader(response.data.token);
       return response.data;
     } catch (error) {
-      toast.error('Your enter wrong email or password');
+      toast.error('You entered wrong email or password');
       return thunkApi.rejectWithValue(error.message);
     }
   },
@@ -48,7 +48,7 @@ export const logOut = createAsyncThunk('/auth/logout', async (_, thunkApi) => {
 });
 
 export const refreshToken = createAsyncThunk(
-  'auth/refreshUser',
+  'auth/refreshToken',
   async (_, thunkApi) => {
     try {
       const reduxState = thunkApi.getState();
