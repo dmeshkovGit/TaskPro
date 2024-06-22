@@ -10,7 +10,7 @@
     box-sizing: border-box;
     position: absolute;
     z-index: 3;
-    overflow-x: none;
+    overflow-x: auto;
   }
   .isClosed {
     display: none;
