@@ -33,14 +33,15 @@ export default function App() {
   useEffect(() => {
     if (isLoggedIn) {
       dispatch(refreshUser());
-
-      if (isUserError) {
-        dispatch(handleLogOut());
-      }
-
       dispatch(fetchBoards());
     }
-  }, [dispatch, isLoggedIn, isUserError]);
+  }, [dispatch, isLoggedIn]);
+
+  useEffect(() => {
+    if (isUserError) {
+      dispatch(handleLogOut());
+    }
+  }, [dispatch, isUserError]);
 
   return (
     <div>
