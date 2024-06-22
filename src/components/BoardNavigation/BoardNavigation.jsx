@@ -1,5 +1,5 @@
 import BoardCard from '../BoardCard/BoardCard';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useState, useEffect, useRef } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { selectAllBoards } from '../../redux/board/selectors.js';
@@ -16,7 +16,6 @@ export default function BoardNavigation({ toggleSidebar }) {
   const [activeBoard, setActiveBoard] = useState(null);
   const boards = useSelector(selectAllBoards);
   const navRef = useRef(null);
-  // const dispatch = useDispatch();
 
   useEffect(() => {
     const path = location.pathname.split('/').pop();
