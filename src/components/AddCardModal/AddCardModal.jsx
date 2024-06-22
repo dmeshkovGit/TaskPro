@@ -1,15 +1,15 @@
 import { useState } from 'react';
-import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import Icon from '../../shared/components/Icon/Icon';
 import styles from './AddCardModal.module.css';
 import '../../shared/styles/variables.css';
 import { useDispatch } from 'react-redux';
 import { addCard } from '../../redux/cards/operations';
+import DatePickerCalendar from '../../shared/components/DatePickerCalendar/DatePickerCalendar';
 
 const AddCardModal = ({ id, onClose }) => {
   const [labelColor, setLabelColor] = useState('without');
-  const [dedline, setDeadline] = useState(new Date());
+  const [deadline, setDeadline] = useState(new Date());
   const dispatch = useDispatch();
   const handleSubmit = e => {
     e.preventDefault();
@@ -67,14 +67,7 @@ const AddCardModal = ({ id, onClose }) => {
         <div className={styles.formGroupDeadline}>
           <label htmlFor="deadline">Deadline</label>
           <div className={styles.dateInput}>
-            <DatePicker
-              id="deadline"
-              selected={dedline}
-              onChange={e => setDeadline(e)}
-              required
-              className={styles.input}
-              calendarClassName={styles.datePicker}
-            />
+            <DatePickerCalendar deadline={deadline} setDeadline={setDeadline} />
             <Icon
               id="icon-arrow-down"
               width="18"
