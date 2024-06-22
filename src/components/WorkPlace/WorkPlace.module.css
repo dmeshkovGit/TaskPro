@@ -4,7 +4,7 @@
   display: flex;
   overflow-x: auto;
   gap: 15px;
-  padding: 5px 30px;
+  padding: 5px 24px;
 }
 
 .columns {
