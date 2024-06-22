@@ -24,6 +24,7 @@ const NotFoundPage = lazy(() =>
 export default function App() {
   const dispatch = useDispatch();
   const isLoggedIn = useSelector(selectIsLoggedIn);
+  const isUserError = useSelector(selectIsError);
 
   useEffect(() => {
     dispatch(refreshToken());
@@ -32,9 +33,14 @@ export default function App() {
   useEffect(() => {
     if (isLoggedIn) {
       dispatch(refreshUser());
+
+      if (isUserError) {
+        dispatch(handleLogOut());
+      }
+
       dispatch(fetchBoards());
     }
-  }, [dispatch, isLoggedIn]);
+  }, [dispatch, isLoggedIn, isUserError]);
 
   return (
     <div>

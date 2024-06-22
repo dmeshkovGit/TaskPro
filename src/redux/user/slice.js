@@ -34,9 +34,8 @@ const userSlice = createSlice({
         state.loading = false;
         state.success = true;
       })
-      .addCase(needHelp.rejected, (state, action) => {
+      .addCase(needHelp.rejected, state => {
         state.loading = false;
-        state.error = action.payload;
       })
       .addCase(updateUserTheme.pending, state => {
         state.loading = true;
@@ -46,10 +45,10 @@ const userSlice = createSlice({
       })
       .addCase(updateUserTheme.rejected, state => {
         state.loading = false;
-        state.error = true;
       })
       .addCase(refreshUser.pending, state => {
         state.loading = true;
+        state.error = false;
       })
       .addCase(refreshUser.fulfilled, (state, action) => {
         state.user = action.payload;
@@ -57,7 +56,6 @@ const userSlice = createSlice({
       })
       .addCase(refreshUser.rejected, state => {
         state.loading = false;
-
         state.error = true;
       })
       .addCase(setAvatarUrl.pending, state => {
@@ -79,7 +77,6 @@ const userSlice = createSlice({
       })
       .addCase(updateUserProfile.rejected, state => {
         state.loading = false;
-        state.error = true;
       });
   },
 });
