@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import BoardNavigation from '../BoardNavigation/BoardNavigation';
 import LogoComponent from '../../shared/components/LogoComponent/LogoComponent';
 import img from '../../../public/2.png';
@@ -10,12 +10,12 @@ import clsx from 'clsx';
 import Icon from '../../shared/components/Icon/Icon';
 import NewBoardModal from '../NewBoardModal/NewBoardModal';
 import { logOut } from '../../redux/auth/operations';
-import { TeamPhotos } from '../TeamPhotos/TeamPhotos';
+import { selectSidebar } from '../../redux/sidebar/selectors';
 
-export default function SideBar({ isSidebarOpen, toggleSidebar }) {
+export default function SideBar() {
   const [isOpenCreateModal, setIsOpenCreateModal] = useState(false);
   const [isOpenHelpModal, setIsOpenHelpModal] = useState(false);
-
+  const sidebar = useSelector(selectSidebar);
   const dispatch = useDispatch();
 
   const handleCreateModal = useCallback(() => {
@@ -28,10 +28,7 @@ export default function SideBar({ isSidebarOpen, toggleSidebar }) {
   return (
     <>
       {isOpenCreateModal && (
-        <NewBoardModal
-          handleCreateModal={handleCreateModal}
-          toggleSidebar={toggleSidebar}
-        />
+        <NewBoardModal handleCreateModal={handleCreateModal} />
       )}
       {isOpenHelpModal && <NeedHelpModal handleHelpModal={handleHelpModal} />}
       <div className={css.backdrop}>
@@ -90,26 +87,28 @@ export default function SideBar({ isSidebarOpen, toggleSidebar }) {
               Need help?
             </button>
           </div>
-          <button
-            className={css.logoutBtn}
-            type="button"
-            onClick={() => {
-              dispatch(logOut())
-                .unwrap()
-                .then()
-                .catch(() => {
-                  console.error;
-                });
-            }}
-          >
-            <Icon
-              id="icon-login"
-              width="32"
-              height="32"
-              className={css.logoutIcon}
-            />
-            Log out
-          </button>
+          <div className={css.logoutBox}>
+            <button
+              className={css.logoutBtn}
+              type="button"
+              onClick={() => {
+                dispatch(logOut())
+                  .unwrap()
+                  .then()
+                  .catch(() => {
+                    console.error;
+                  });
+              }}
+            >
+              <Icon
+                id="icon-login"
+                width="32"
+                height="32"
+                className={css.logoutIcon}
+              />
+              Log out
+            </button>
+          </div>
 
           {/* <TeamPhotos /> */}
         </aside>

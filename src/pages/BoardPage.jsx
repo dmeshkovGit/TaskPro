@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 import WorkPlace from '../components/WorkPlace/WorkPlace';
 import { useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchBoards, getBoardById } from '../redux/board/operations';
+import { getBoardById } from '../redux/board/operations';
 import { selectBoard } from '../redux/board/selectors';
 
 export default function BoardPage() {
@@ -20,14 +20,10 @@ export default function BoardPage() {
     if (path) {
       setId(path);
     }
-  }, [location.pathname]);
-
-  useEffect(() => {
-    dispatch(fetchBoards());
     if (id !== null) {
       dispatch(getBoardById(id));
     }
-  }, [dispatch, id]);
+  }, [location.pathname, dispatch, id]);
 
   const title = board?.board?.title || 'Loading...';
 

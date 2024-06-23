@@ -10,7 +10,8 @@
     box-sizing: border-box;
     position: absolute;
     z-index: 3;
-    overflow-x: none;
+    padding: 0 14px;
+    /* overflow-x: auto; */
   }
   .isClosed {
     display: none;
@@ -21,10 +22,8 @@
     margin-bottom: 8px;
     color: var(--grey-text);
     font-weight: 400;
-    margin-left: 14px;
   }
   .wrapper {
-    margin-left: 14px;
     margin-right: 14px;
     border-top: 1px solid var(--active-background-color);
     border-bottom: 1px solid var(--active-background-color);
@@ -61,12 +60,9 @@
     width: 197px;
     padding: 14px;
     border-radius: 8px;
-    margin-top: 40px;
     font-size: 12px;
     font-weight: 400;
     box-sizing: border-box;
-    margin-left: auto;
-    margin-right: auto;
   }
   .img {
     width: 54px;
@@ -83,28 +79,6 @@
     color: var(--main-text-color);
   }
 
-  .title {
-    font-size: 12px;
-    margin-bottom: 8px;
-    color: var(--grey-text);
-    font-weight: 400;
-    margin-left: 14px;
-  }
-  .wrapper {
-    margin-left: 14px;
-    margin-right: 14px;
-    border-top: 1px solid var(--active-background-color);
-    border-bottom: 1px solid var(--active-background-color);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 14px;
-    padding-bottom: 14px;
-    font-size: 14px;
-    font-weight: medium;
-    gap: 60px;
-    margin-bottom: 40px;
-  }
   .addBtn {
     width: 40px;
     height: 36px;
@@ -124,17 +98,15 @@
     background-color: var(--accent-color-hover);
   }
   .helpWrapper {
+    box-sizing: border-box;
     background-color: var(--active-background-color);
     width: 197px;
     height: 238px;
     padding: 20px;
     border-radius: 8px;
-    margin-top: 40px;
     font-size: 12px;
     font-weight: 400;
     box-sizing: border-box;
-    margin-left: auto;
-    margin-right: auto;
   }
   .img {
     width: 54px;
@@ -158,24 +130,24 @@
     line-height: 0;
   }
   .logoutBtn {
-    width: 105px;
+    box-sizing: border-box;
+    width: 100%;
     font-size: 14px;
-    padding: 0;
+    padding: 24px 24px 24px 0;
     cursor: pointer;
     border: none;
-    background-color: inherit;
+    border-radius: 8px;
+    background-color: var(--second-background-color);
     color: var(--side-text);
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     gap: 14px;
-    margin-top: 24px;
     font-weight: 500;
-    margin-left: 24px;
-    margin-bottom: 24px;
     transition: stroke var(--transition);
-    line-height: 0;
+    /* line-height: 0; */
   }
+
   .text {
     display: block;
     width: 76px;
@@ -187,7 +159,7 @@
   }
 
   .logoutIcon {
-    stroke: var(--side-text);
+    stroke: var(--accent-color);
     fill: none;
   }
   .helpIcon {
@@ -209,20 +181,15 @@
   .container {
     width: 260px;
     height: 100vh;
+    padding: 0 24px;
   }
   /* .isClosed {
     display: none;
   } */
-  .title {
-    margin-left: 24px;
-  }
   .wrapper {
-    margin-left: 24px;
     margin-right: 24px;
   }
   .helpWrapper {
-    margin-left: 24px;
-    margin-right: 24px;
     width: 212px;
     height: 272px;
     font-size: 14px;
@@ -230,9 +197,6 @@
   }
   .logoutBtn {
     font-size: 16px;
-  }
-  .logoutBtn {
-    margin-bottom: 28px;
   }
 
   .textHelp {

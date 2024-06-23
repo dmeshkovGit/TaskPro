@@ -5,12 +5,12 @@ import css from './MainContent.module.css';
 import { selectBoard } from '../../redux/board/selectors';
 import { useSelector } from 'react-redux';
 
-export default function MainContent({ content, header, toggleSidebar }) {
+export default function MainContent({ content, header }) {
   const currentBoard = useSelector(selectBoard);
 
   return (
     <div className={css.wrapper}>
-      <Header toggleSidebar={toggleSidebar} />
+      <Header />
       <ScreensPage>
         <div className={css.headerWrapper}>
           {header}

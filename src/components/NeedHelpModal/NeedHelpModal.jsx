@@ -5,6 +5,7 @@ import * as yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { needHelp } from '../../redux/user/operations.js';
 import Icon from '../../shared/components/Icon/Icon';
+import { toggleSidebar } from '../../redux/sidebar/slice.js';
 
 export default function NeedHelpModal({ handleHelpModal }) {
   const dispatch = useDispatch();
@@ -57,6 +58,7 @@ export default function NeedHelpModal({ handleHelpModal }) {
       .catch(error => {
         console.error('Error sending message:', error);
       });
+    dispatch(toggleSidebar());
     reset();
   };
 

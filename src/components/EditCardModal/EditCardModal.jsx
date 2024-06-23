@@ -1,9 +1,8 @@
 import { useState } from 'react';
-import DatePicker from 'react-datepicker';
 import Icon from '../../shared/components/Icon/Icon';
 import styles from './EditCardModal.module.css';
 import '../../shared/styles/variables.css';
-// import 'react-datepicker/dist/react-datepicker.css';
+import DatePickerCalendar from '../../shared/components/DatePickerCalendar/DatePickerCalendar';
 
 const EditCardModal = ({ card, onEditCard, onClose }) => {
   const [title, setTitle] = useState(card.title);
@@ -68,14 +67,7 @@ const EditCardModal = ({ card, onEditCard, onClose }) => {
         <div className={styles.formGroupDeadline}>
           <label htmlFor="deadline">Deadline</label>
           <div className={styles.dateInput}>
-            <DatePicker
-              id="deadline"
-              selected={deadline}
-              onChange={date => setDeadline(date)}
-              required
-              className={styles.input}
-              calendarClassName={styles.datePicker}
-            />
+            <DatePickerCalendar deadline={deadline} setDeadline={setDeadline} />
             <Icon
               id="icon-arrow-down"
               width="18"
