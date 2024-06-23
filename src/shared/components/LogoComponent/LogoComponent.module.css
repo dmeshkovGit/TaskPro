@@ -10,6 +10,7 @@
     justify-content: baseline;
     margin-bottom: 60px;
     gap: 8px;
+    margin-left: 14px;
     margin-top: 14px;
   }
   .wrapper {
@@ -27,6 +28,7 @@
 }
 @media (min-width: 768px) {
   .container {
+    margin-left: 24px;
     margin-top: 24px;
     margin-bottom: 70px;
   }

@@ -1,6 +1,6 @@
 .scroll {
   max-height: 335px;
-  overflow-y: scroll;
+  overflow-y: auto;
   margin-bottom: -16px;
   scrollbar-width: thin;
   border: none;
@@ -10,12 +10,14 @@
 @media only screen and (min-width: 768px) {
   .scroll {
     max-height: 704px;
+    overflow-y: auto;
   }
 }
 
 @media only screen and (min-width: 1440px) {
   .scroll {
     max-width: 1132px;
+    overflow-y: auto;
   }
 }
 
