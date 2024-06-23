@@ -36,10 +36,10 @@ export default function SideBar() {
           className={clsx(
             css.container,
             {
-              [css.isClosed]: !isSidebarOpen,
+              [css.isClosed]: !sidebar,
             },
             {
-              [css.backdrop]: isSidebarOpen,
+              [css.backdrop]: sidebar,
             },
           )}
         >
@@ -60,7 +60,7 @@ export default function SideBar() {
               />
             </button>
           </div>
-          <BoardNavigation toggleSidebar={toggleSidebar} />
+          <BoardNavigation />
           <div className={css.helpWrapper}>
             <img
               className={css.img}
