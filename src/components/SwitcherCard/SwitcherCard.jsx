@@ -4,7 +4,9 @@ import Icon from '../../shared/components/Icon/Icon';
 
 const SwitcherCard = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [dropUp, setDropUp] = useState(false);
   const dropdownRef = useRef(null);
+  const buttonRef = useRef(null);
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -16,6 +18,19 @@ const SwitcherCard = () => {
     }
   };
 
+  const handleDropdownPosition = () => {
+    if (buttonRef.current) {
+      const rect = buttonRef.current.getBoundingClientRect();
+      const spaceBelow = window.innerHeight - rect.bottom;
+      if (spaceBelow < 150) {
+        // якщо недостатньо місця вниз
+        setDropUp(true);
+      } else {
+        setDropUp(false);
+      }
+    }
+  };
+
   useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside);
     return () => {
@@ -23,9 +38,17 @@ const SwitcherCard = () => {
     };
   }, []);
 
+  useEffect(() => {
+    handleDropdownPosition();
+  }, [isOpen]);
+
   return (
     <div className={styles.wrapperSwitch} ref={dropdownRef}>
-      <button className={styles.switchBtn} onClick={toggleDropdown}>
+      <button
+        className={styles.switchBtn}
+        onClick={toggleDropdown}
+        ref={buttonRef}
+      >
         <Icon
           id="icon-arrow-circle-broken-right"
           width="16"
@@ -34,7 +57,9 @@ const SwitcherCard = () => {
         />
       </button>
       {isOpen && (
-        <div className={styles.dropdownMenu}>
+        <div
+          className={`${styles.dropdownMenu} ${dropUp ? styles.dropUp : ''}`}
+        >
           <div className={styles.menuWrapper}>
             <button className={styles.dropdownItem}>
               <span className={styles.textDrop}>In progress</span>
