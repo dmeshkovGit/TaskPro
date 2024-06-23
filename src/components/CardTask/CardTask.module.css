@@ -78,7 +78,7 @@
   font-weight: 400;
   font-size: 8px;
   letter-spacing: -0.02em;
-  color: var(--trash);
+  color: var(--label);
   margin-bottom: 4px;
 }
 
@@ -123,7 +123,7 @@
 }
 
 .icon {
-  stroke: var(--trash);
+  stroke: var(--icon-change);
   transition: stroke 0.3s ease;
   fill: none;
 }
