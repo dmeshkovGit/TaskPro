@@ -1,22 +1,22 @@
 import BoardCard from '../BoardCard/BoardCard';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useState, useEffect, useRef } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { selectAllBoards } from '../../redux/board/selectors.js';
 import css from './BoardNavigation.module.css';
 import clsx from 'clsx';
-// import { getBoardById } from "../../redux/board/operations.js";
+import { toggleSidebar } from '../../redux/sidebar/slice.js';
 
 const makeLinkClass = ({ isActive }) => {
   return clsx(css.link, isActive && css.isActive);
 };
 
-export default function BoardNavigation({ toggleSidebar }) {
+export default function BoardNavigation() {
   const location = useLocation();
   const [activeBoard, setActiveBoard] = useState(null);
   const boards = useSelector(selectAllBoards);
   const navRef = useRef(null);
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const path = location.pathname.split('/').pop();
@@ -38,14 +38,8 @@ export default function BoardNavigation({ toggleSidebar }) {
   }, [activeBoard]);
 
   const handleBoardClick = id => {
-    const screenWidth = window.innerWidth;
-
-    if (screenWidth < 1024) {
-      toggleSidebar();
-    }
-
+    dispatch(toggleSidebar());
     setActiveBoard(id);
-    // dispatch(getBoardById(id));
   };
 
   return (
@@ -65,7 +59,6 @@ export default function BoardNavigation({ toggleSidebar }) {
                 title={title}
                 id={_id}
                 isActive={_id === activeBoard}
-                toggleSidebar={toggleSidebar}
               />
             </NavLink>
           </li>

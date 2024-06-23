@@ -1,6 +1,5 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
-import { refreshUser } from '../../../redux/user/operations';
 import { selectUser, selectIsLoading } from '../../../redux/user/selectors';
 import styles from './UserInfo.module.css';
 import md5 from 'md5';
@@ -12,14 +11,9 @@ const getGravatarUrl = email => {
 };
 
 const UserInfo = ({ openModal }) => {
-  const dispatch = useDispatch();
   const user = useSelector(selectUser);
   const loading = useSelector(selectIsLoading);
   const [avatar, setAvatar] = useState('');
-
-  useEffect(() => {
-    dispatch(refreshUser());
-  }, [dispatch]);
 
   useEffect(() => {
     if (user && !user.avatarURL) {

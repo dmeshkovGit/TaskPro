@@ -7,13 +7,13 @@ import Background from '../../shared/components/Background/Background';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectBoard } from '../../redux/board/selectors';
 import icons from '../../images/mini/icons.json';
+import { toggleSidebar } from '../../redux/sidebar/slice';
 // import * as images from './img';
 // import picData from './data/pic.json';
 // import Picture from '../../shared/components/Pic/Pic';
 
-export default function EditBoardModal({ onClose, title, toggleSidebar }) {
+export default function EditBoardModal({ onClose, title }) {
   const board = useSelector(selectBoard);
-  console.log(board);
   const [selectedIcon, setSelectedIcon] = useState(
     board.board.icon || icons[0].value,
   );
@@ -48,11 +48,7 @@ export default function EditBoardModal({ onClose, title, toggleSidebar }) {
       });
     onClose();
     dispatch(getBoardById(id));
-    const screenWidth = window.innerWidth;
-
-    if (screenWidth < 1024) {
-      toggleSidebar();
-    }
+    dispatch(toggleSidebar());
   };
 
   const stopPropagation = event => {
