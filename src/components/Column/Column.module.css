@@ -1,11 +1,5 @@
-.column {
-  border-radius: 5px;
-  width: 335px;
-  flex-shrink: 0;
-}
-
 .cards {
-  margin-top: 10px;
+  width: 335px;
 }
 
 .modal {
@@ -24,4 +18,31 @@
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.75);
+}
+.cardsScroll {
+  margin-top: 10px;
+  height: 600px;
+  overflow-y: scroll;
+  padding-right: 4px;
+}
+
+.cardsScroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+.cardsScroll::-webkit-scrollbar-track {
+  background-color: var(--board-title-wrap);
+  border-radius: 8px;
+}
+
+.cardsScroll::-webkit-scrollbar-thumb {
+  background-color: var(--main-background-color);
+  border-radius: 8px;
+  height: 100px;
+}
+
+@media (min-width: 768px) {
+  .cardsScroll {
+    padding-right: 8px;
+  }
 }

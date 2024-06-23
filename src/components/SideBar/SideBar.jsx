@@ -90,26 +90,28 @@ export default function SideBar({ isSidebarOpen, toggleSidebar }) {
               Need help?
             </button>
           </div>
-          <button
-            className={css.logoutBtn}
-            type="button"
-            onClick={() => {
-              dispatch(logOut())
-                .unwrap()
-                .then()
-                .catch(() => {
-                  console.error;
-                });
-            }}
-          >
-            <Icon
-              id="icon-login"
-              width="32"
-              height="32"
-              className={css.logoutIcon}
-            />
-            Log out
-          </button>
+          <div className={css.logoutBox}>
+            <button
+              className={css.logoutBtn}
+              type="button"
+              onClick={() => {
+                dispatch(logOut())
+                  .unwrap()
+                  .then()
+                  .catch(() => {
+                    console.error;
+                  });
+              }}
+            >
+              <Icon
+                id="icon-login"
+                width="32"
+                height="32"
+                className={css.logoutIcon}
+              />
+              Log out
+            </button>
+          </div>
 
           {/* <TeamPhotos /> */}
         </aside>
