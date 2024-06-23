@@ -5,13 +5,12 @@ import { NavLink, useLocation } from 'react-router-dom';
 import { selectAllBoards } from '../../redux/board/selectors.js';
 import css from './BoardNavigation.module.css';
 import clsx from 'clsx';
-// import { getBoardById } from "../../redux/board/operations.js";
 
 const makeLinkClass = ({ isActive }) => {
   return clsx(css.link, isActive && css.isActive);
 };
 
-export default function BoardNavigation({ toggleSidebar }) {
+export default function BoardNavigation() {
   const location = useLocation();
   const [activeBoard, setActiveBoard] = useState(null);
   const boards = useSelector(selectAllBoards);
@@ -39,12 +38,11 @@ export default function BoardNavigation({ toggleSidebar }) {
   const handleBoardClick = id => {
     const screenWidth = window.innerWidth;
 
-    if (screenWidth < 1024) {
-      toggleSidebar();
-    }
+    // if (screenWidth < 1024) {
+    //   toggleSidebar();
+    // }
 
     setActiveBoard(id);
-    // dispatch(getBoardById(id));
   };
 
   return (
@@ -64,7 +62,6 @@ export default function BoardNavigation({ toggleSidebar }) {
                 title={title}
                 id={_id}
                 isActive={_id === activeBoard}
-                toggleSidebar={toggleSidebar}
               />
             </NavLink>
           </li>

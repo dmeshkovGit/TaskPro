@@ -1,24 +1,19 @@
-import { useState } from 'react';
 import styles from './BurgerMenu.module.css';
-import SideBar from '../../../components/SideBar/SideBar';
 import Icon from '../../../shared/components/Icon/Icon';
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleSidebar } from '../../../redux/sidebar/slice';
+import { selectSidebar } from '../../../redux/sidebar/selectors';
 
 export default function BurgerMenu() {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const dispatch = useDispatch();
+  const sidebar = useSelector(selectSidebar);
 
-  const toggleSidebar = () => {
-    setIsSidebarOpen(prevState => !prevState);
+  const handleClick = () => {
+    dispatch(toggleSidebar());
   };
-
-  const handleBackdropClick = event => {
-    if (event.target.classList.contains(styles.backdrop)) {
-      setIsSidebarOpen(false);
-    }
-  };
-
   return (
     <div className={styles.burgerWrapper}>
-      <button className={styles.burgerButton} onClick={toggleSidebar}>
+      <button className={styles.burgerButton} onClick={handleClick}>
         <Icon
           id="icon-burger"
           width="24"
@@ -26,14 +21,7 @@ export default function BurgerMenu() {
           className={styles.burgerMenu}
         />
       </button>
-      {isSidebarOpen && (
-        <div className={styles.backdrop} onClick={handleBackdropClick}>
-          <SideBar
-            isSidebarOpen={isSidebarOpen}
-            toggleSidebar={toggleSidebar}
-          />
-        </div>
-      )}
+      {sidebar && <div className={styles.backdrop} onClick={handleClick}></div>}
     </div>
   );
 }

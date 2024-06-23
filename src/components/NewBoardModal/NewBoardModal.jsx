@@ -9,8 +9,9 @@ import { useEffect, useState } from 'react';
 import Background from '../../shared/components/Background/Background.jsx';
 import { useNavigate } from 'react-router-dom';
 import icons from '../../images/mini/icons.json';
+import { toggleSidebar } from '../../redux/sidebar/slice.js';
 
-export default function NewBoardModal({ handleCreateModal, toggleSidebar }) {
+export default function NewBoardModal({ handleCreateModal }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -56,11 +57,7 @@ export default function NewBoardModal({ handleCreateModal, toggleSidebar }) {
           console.error('Failed to add board:', error);
         });
       reset();
-      const screenWidth = window.innerWidth;
-
-      if (screenWidth < 1024) {
-        toggleSidebar();
-      }
+      dispatch(toggleSidebar());
     }
   };
 
