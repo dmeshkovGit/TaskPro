@@ -11,6 +11,8 @@ export default function BurgerMenu() {
   const handleClick = () => {
     dispatch(toggleSidebar());
   };
+  const screenWidth = window.innerWidth;
+
   return (
     <div className={styles.burgerWrapper}>
       <button className={styles.burgerButton} onClick={handleClick}>
@@ -21,7 +23,9 @@ export default function BurgerMenu() {
           className={styles.burgerMenu}
         />
       </button>
-      {sidebar && <div className={styles.backdrop} onClick={handleClick}></div>}
+      {sidebar && screenWidth < 1024 && (
+        <div className={styles.backdrop} onClick={handleClick}></div>
+      )}
     </div>
   );
 }
