@@ -1,10 +1,11 @@
 import BoardCard from '../BoardCard/BoardCard';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useState, useEffect, useRef } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { selectAllBoards } from '../../redux/board/selectors.js';
 import css from './BoardNavigation.module.css';
 import clsx from 'clsx';
+import { toggleSidebar } from '../../redux/sidebar/slice.js';
 
 const makeLinkClass = ({ isActive }) => {
   return clsx(css.link, isActive && css.isActive);
@@ -15,6 +16,7 @@ export default function BoardNavigation() {
   const [activeBoard, setActiveBoard] = useState(null);
   const boards = useSelector(selectAllBoards);
   const navRef = useRef(null);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const path = location.pathname.split('/').pop();
@@ -36,12 +38,7 @@ export default function BoardNavigation() {
   }, [activeBoard]);
 
   const handleBoardClick = id => {
-    const screenWidth = window.innerWidth;
-
-    // if (screenWidth < 1024) {
-    //   toggleSidebar();
-    // }
-
+    dispatch(toggleSidebar());
     setActiveBoard(id);
   };
 
