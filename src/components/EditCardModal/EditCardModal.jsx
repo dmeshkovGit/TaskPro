@@ -1,10 +1,9 @@
 import { useState } from 'react';
 import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
 import Icon from '../../shared/components/Icon/Icon';
 import styles from './EditCardModal.module.css';
 import '../../shared/styles/variables.css';
-import 'react-datepicker/dist/react-datepicker.css';
+// import 'react-datepicker/dist/react-datepicker.css';
 
 const EditCardModal = ({ card, onEditCard, onClose }) => {
   const [title, setTitle] = useState(card.title);
