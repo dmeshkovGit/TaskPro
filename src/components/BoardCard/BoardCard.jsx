@@ -9,13 +9,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 Modal.setAppElement('#root');
 
-export default function BoardCard({
-  icon,
-  title,
-  id,
-  isActive,
-  toggleSidebar,
-}) {
+export default function BoardCard({ icon, title, id, isActive }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -93,11 +87,7 @@ export default function BoardCard({
           className={css.modalWindowContent}
           overlayClassName={css.overlay}
         >
-          <EditBoardModal
-            onClose={handleCloseModal}
-            title={title}
-            toggleSidebar={toggleSidebar}
-          />
+          <EditBoardModal onClose={handleCloseModal} title={title} />
         </Modal>
       </div>
     </div>

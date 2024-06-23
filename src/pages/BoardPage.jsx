@@ -20,13 +20,10 @@ export default function BoardPage() {
     if (path) {
       setId(path);
     }
-  }, [location.pathname]);
-
-  useEffect(() => {
     if (id !== null) {
       dispatch(getBoardById(id));
     }
-  }, [dispatch, id]);
+  }, [location.pathname, dispatch, id]);
 
   const title = board?.board?.title || 'Loading...';
 

@@ -7,21 +7,16 @@ import { useDispatch } from 'react-redux';
 import { resetCurrentBoard } from '../redux/board/slice';
 
 export default function HomePage() {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(resetCurrentBoard());
   }, [dispatch]);
 
-  const toggleSidebar = () => {
-    setIsSidebarOpen(prevState => !prevState);
-  };
-
   return (
     <Layout>
-      <SideBar isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
-      <MainContent toggleSidebar={toggleSidebar} content={<Text />} />
+      <SideBar />
+      <MainContent content={<Text />} />
     </Layout>
   );
 }
