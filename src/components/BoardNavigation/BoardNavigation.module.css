@@ -11,13 +11,17 @@
     display: flex;
     flex-direction: column;
     flex: 1;
-    overflow-y: auto;
+    /* overflow-y: auto; */
   }
   .boardItem {
     width: 100%;
     display: flex;
     justify-content: center;
   }
+  .boardItem:hover {
+    background-color: var(--active-background-color);
+  }
+
   .active {
     background-color: var(--active-background-color);
     color: var(--main-text-color);
