@@ -22,8 +22,7 @@ const SwitcherCard = () => {
     if (buttonRef.current) {
       const rect = buttonRef.current.getBoundingClientRect();
       const spaceBelow = window.innerHeight - rect.bottom;
-      if (spaceBelow < 150) {
-        // якщо недостатньо місця вниз
+      if (spaceBelow < 100) {
         setDropUp(true);
       } else {
         setDropUp(false);

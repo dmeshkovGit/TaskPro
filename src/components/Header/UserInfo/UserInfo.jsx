@@ -12,6 +12,7 @@ const getGravatarUrl = email => {
 
 const UserInfo = ({ openModal }) => {
   const user = useSelector(selectUser);
+
   const loading = useSelector(selectIsLoading);
   const [avatar, setAvatar] = useState('');
 
