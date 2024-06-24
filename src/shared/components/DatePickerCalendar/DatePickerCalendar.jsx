@@ -16,6 +16,7 @@ export default function DatePickerCalendar({ setDeadline, deadline }) {
         }
       }}
       fixedHeight
+      popperPlacement="top-start"
     />
   );
 }
