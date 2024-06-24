@@ -50,23 +50,22 @@ const Column = ({ id, title, onDelete }) => {
   return (
     <div className={styles.column}>
       <ToDo id={id} title={title} onDelete={onDelete} />
-      <ScrollColumn>
-        <ScrollButtomColumn>
-          <div className={styles.cards}>
-            {filteredCards.map(card => {
-              if (id === card.columnId) {
-                return (
-                  <CardTask
-                    key={card._id}
-                    card={card}
-                    onEdit={() => openEditModal(card)}
-                  />
-                );
-              }
-            })}
-          </div>
-        </ScrollButtomColumn>
-      </ScrollColumn>
+      <div className={styles.cardsScroll}>
+        <div className={styles.cards}>
+          {filteredCards.map(card => {
+            if (id === card.columnId) {
+              return (
+                <CardTask
+                  key={card._id}
+                  card={card}
+                  onEdit={() => openEditModal(card)}
+                />
+              );
+            }
+          })}
+        </div>
+      </div>
+
       <AddCardBtn onClick={openModal} />
       <Modal
         isOpen={isModalOpen}
