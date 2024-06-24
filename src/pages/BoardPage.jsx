@@ -19,11 +19,9 @@ export default function BoardPage() {
     const path = location.pathname.split('/').pop();
     if (path) {
       setId(path);
+      dispatch(getBoardById(path));
     }
-    if (id !== null) {
-      dispatch(getBoardById(id));
-    }
-  }, [location.pathname, dispatch, id]);
+  }, [location.pathname, dispatch]);
 
   const title = board?.board?.title || 'Loading...';
 
