@@ -6,8 +6,6 @@
     height: 60px;
     color: inherit;
     cursor: pointer;
-    padding-left: 14px;
-    padding-right: 14px;
     transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
     box-sizing: border-box;
   }
@@ -88,8 +86,6 @@
 @media (min-width: 768px) {
   .container {
     width: 260px;
-    padding-left: 24px;
-    padding-right: 24px;
   }
   .wrapper {
     gap: 8px;
