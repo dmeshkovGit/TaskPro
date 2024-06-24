@@ -11,6 +11,7 @@
     position: absolute;
     z-index: 3;
     overflow-x: auto;
+    flex-shrink: 0;
   }
   .isClosed {
     display: none;
