@@ -9,8 +9,8 @@
 
 .cardsScroll {
   margin-top: 10px;
-  height: 700px;
-  overflow-y: scroll;
+  max-height: 700px;
+  overflow-y: auto;
 }
 .cardsScroll::-webkit-scrollbar {
   height: 600px;
