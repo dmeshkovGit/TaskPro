@@ -1,11 +1,37 @@
 .column {
   border-radius: 5px;
-  width: 335px;
-  flex-shrink: 0;
+  width: 352px;
 }
 
 .cards {
+  margin-right: 8px;
+}
+
+.cardsScroll {
   margin-top: 10px;
+  height: 700px;
+  overflow-y: scroll;
+}
+.cardsScroll::-webkit-scrollbar {
+  height: 600px;
+  width: 8px;
+
+  border-radius: 8px;
+}
+
+.cardsScroll::-webkit-scrollbar-track {
+  background-color: var(--second-text-color);
+  border-radius: 8px;
+}
+
+.cardsScroll::-webkit-scrollbar-thumb {
+  background: var(--main-background-color);
+  border-radius: 8px;
+  height: 120px;
+}
+
+.cardsScroll::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 .modal {
