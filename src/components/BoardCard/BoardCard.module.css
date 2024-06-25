@@ -8,12 +8,12 @@
     cursor: pointer;
     padding-left: 14px;
     padding-right: 14px;
-    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
     box-sizing: border-box;
   }
+
   .icon {
     /* stroke: rgb(255, 255, 255, 0.5); */
-    transition: stroke 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
     fill: none;
     stroke: var(--grey-text);
     &:hover {
@@ -21,10 +21,17 @@
     }
   }
 
-  .container:hover {
-    color: var(--side-text);
+  .title {
+    color: var(--grey-text);
   }
+
+  .container:hover .title {
+    color: var(--side-text);
+    transition: color 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
   .container:hover .icon {
+    transition: stroke 500ms cubic-bezier(0.4, 0, 0.2, 1);
     stroke: var(--side-text);
     fill: none;
   }
@@ -111,13 +118,6 @@
 
   .modalWindowContent {
     width: 350px;
-  }
-}
-
-.title {
-  color: var(--grey-text);
-  &:hover {
-    color: var(--side-text);
   }
 }
 
