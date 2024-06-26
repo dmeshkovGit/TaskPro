@@ -20,18 +20,35 @@
   width: 4px;
   border-radius: 8px 0 0 8px;
 }
-
+.headerWrap {
+  margin-bottom: 8px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  line-height: 1.2;
+  height: 21px;
+  display: flex;
+  align-items: center;
+}
 .header {
   font-weight: 600;
   font-size: 14px;
   letter-spacing: -0.02em;
+  line-height: 1.2;
   color: var(--main-text-color);
-  margin-bottom: 5px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
-
+.descriptionWrap {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-bottom: 1px solid var(--board-title-wrap);
+  padding-bottom: 14px;
+  margin-bottom: 14px;
+}
 .description {
   overflow: hidden;
-  height: 40px;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -40,12 +57,8 @@
   font-size: 12px;
   letter-spacing: -0.02em;
   color: var(--trash);
-}
-
-.separator {
-  height: 1px;
-  color: var(--trash);
-  margin: 16px 0 11px;
+  max-height: calc(1.2em * 2);
+  line-height: 1.2em;
 }
 
 .footer {
@@ -133,7 +146,7 @@
 }
 
 .actionButton:active .icon {
-  stroke: var(--accent-color);
+  stroke: var (--accent-color);
 }
 .low::before,
 .priorityColor.low {

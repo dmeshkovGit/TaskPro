@@ -13,9 +13,13 @@ export default function CardTask({ onEdit, card }) {
 
   return (
     <div className={`${styles.card} ${styles[card.priority]}`}>
-      <p className={styles.header}>{card.title}</p>
-      <p className={styles.description}>{card.description}</p>
-      <div className={styles.separator}></div>
+      <div className={styles.headerWrap}>
+        <p className={styles.header}>{card.title}</p>
+      </div>
+      <div className={styles.descriptionWrap}>
+        <p className={styles.description}>{card.description}</p>
+      </div>
+
       <div className={styles.footer}>
         <div className={styles.containerPriorityDeadline}>
           <div className={styles.priority}>

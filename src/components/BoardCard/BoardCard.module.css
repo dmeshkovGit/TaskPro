@@ -11,9 +11,14 @@
     box-sizing: border-box;
   }
 
-  .icon {
-    /* stroke: rgb(255, 255, 255, 0.5); */
+  .cutContainer {
+    max-width: 130px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 
+  .icon {
     fill: none;
     stroke: var(--grey-text);
     &:hover {
@@ -23,6 +28,11 @@
 
   .title {
     color: var(--grey-text);
+    font-size: 14px;
+    line-height: 1.2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .container:hover .title {
@@ -81,7 +91,6 @@
   }
 
   .modalWindowContent {
-    /* position: absolute; */
     border: 1px solid var(--accent-color);
     border-radius: 8px;
     width: 335px;
@@ -92,11 +101,15 @@
     gap: 24px;
   }
 }
+
 @media (min-width: 768px) {
   .container {
     width: 260px;
     padding-left: 24px;
     padding-right: 24px;
+  }
+  .cutContainer {
+    max-width: 140px;
   }
   .wrapper {
     gap: 8px;
