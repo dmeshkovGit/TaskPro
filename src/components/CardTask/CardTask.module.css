@@ -21,11 +21,14 @@
   border-radius: 8px 0 0 8px;
 }
 .headerWrap {
-  margin-bottom: 12px;
+  margin-bottom: 8px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
   line-height: 1.2;
+  height: 21px;
+  display: flex;
+  align-items: center;
 }
 .header {
   font-weight: 600;
@@ -56,12 +59,6 @@
   color: var(--trash);
   max-height: calc(1.2em * 2);
   line-height: 1.2em;
-}
-
-.separator {
-  height: 1px;
-  color: var(--trash);
-  margin: 16px 0 11px;
 }
 
 .footer {
