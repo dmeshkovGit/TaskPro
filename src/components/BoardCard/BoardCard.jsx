@@ -87,7 +87,7 @@ export default function BoardCard({ icon, title, id, isActive }) {
           className={css.modalWindowContent}
           overlayClassName={css.overlay}
         >
-          <EditBoardModal onClose={handleCloseModal} title={title} />
+          <EditBoardModal onClose={handleCloseModal} id={id} />
         </Modal>
       </div>
     </div>
