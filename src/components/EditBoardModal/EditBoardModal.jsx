@@ -8,27 +8,30 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectBoard } from '../../redux/board/selectors';
 import icons from '../../images/mini/icons.json';
 import { toggleSidebar } from '../../redux/sidebar/slice';
-// import * as images from './img';
-// import picData from './data/pic.json';
-// import Picture from '../../shared/components/Pic/Pic';
 
-export default function EditBoardModal({ onClose, title }) {
+export default function EditBoardModal({ onClose, id }) {
+  const dispatch = useDispatch();
   const board = useSelector(selectBoard);
-  const [selectedIcon, setSelectedIcon] = useState(
-    board.board.icon || icons[0].value,
-  );
-  const [selectedBg, setSelectedBg] = useState(
-    board.board.background || 'bg-1',
-  );
-  const [boardTitle, setBoardTitle] = useState(title);
+
+  const [selectedIcon, setSelectedIcon] = useState('');
+  const [selectedBg, setSelectedBg] = useState('');
+  const [boardTitle, setBoardTitle] = useState('');
 
   useEffect(() => {
-    setSelectedIcon(board.board.icon || icons[0].value);
-    setSelectedBg(board.board.background || 'bg-1');
-    setBoardTitle(board.board.title);
-  }, [board]);
+    const fetchBoardData = async () => {
+      await dispatch(getBoardById(id));
+    };
 
-  const dispatch = useDispatch();
+    fetchBoardData();
+  }, [dispatch, id]);
+
+  useEffect(() => {
+    if (board && board.board) {
+      setSelectedIcon(board.board.icon || icons[0].value);
+      setSelectedBg(board.board.background || 'bg-1');
+      setBoardTitle(board.board.title);
+    }
+  }, [board]);
 
   const onSubmit = event => {
     event.preventDefault();
@@ -42,13 +45,13 @@ export default function EditBoardModal({ onClose, title }) {
       .unwrap()
       .then(() => {
         console.log('update successfully'); // додати тост
+        onClose();
+        dispatch(getBoardById(id));
+        dispatch(toggleSidebar());
       })
       .catch(error => {
         console.error(error.message);
       });
-    onClose();
-    dispatch(getBoardById(id));
-    dispatch(toggleSidebar());
   };
 
   const stopPropagation = event => {
@@ -67,16 +70,6 @@ export default function EditBoardModal({ onClose, title }) {
       document.removeEventListener('keydown', handleKeyDown);
     };
   }, [onClose]);
-
-  //   const data = picData.map(item => {
-  //     return {
-  //       ...item,
-  //       url: images[item.url],
-  //       url2x: images[item.url2x],
-  //     };
-  //   });
-
-  //   console.log(...data);
 
   return (
     <div className={css.container} onClick={onClose}>
@@ -114,7 +107,6 @@ export default function EditBoardModal({ onClose, title }) {
                         onChange={() => setSelectedIcon(icon.value)}
                         checked={selectedIcon === icon.value}
                       />
-
                       <Icon
                         id={icon.id}
                         alt={icon.alt}
@@ -161,7 +153,6 @@ export default function EditBoardModal({ onClose, title }) {
                   alt="icon-close"
                 />
               </div>
-
               <p className={css.createText}>Edit</p>
             </button>
           </form>
