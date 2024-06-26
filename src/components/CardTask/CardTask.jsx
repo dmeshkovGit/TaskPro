@@ -4,6 +4,7 @@ import '../../shared/styles/variables.css';
 import { useDispatch } from 'react-redux';
 import { deleteCard } from '../../redux/cards/operations';
 import SwitcherCard from '../SwitcherCard/SwitcherCard';
+import Bell from '../Bell/Bell';
 
 export default function CardTask({ onEdit, card }) {
   const dispatch = useDispatch();
@@ -41,6 +42,7 @@ export default function CardTask({ onEdit, card }) {
           </div>
         </div>
         <div className={styles.actions}>
+          <Bell deadline={card.deadline} />
           <SwitcherCard />
           <button className={styles.actionButton} onClick={onEdit}>
             <Icon
