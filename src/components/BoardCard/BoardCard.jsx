@@ -33,10 +33,12 @@ export default function BoardCard({ icon, title, id, isActive }) {
         console.error('Failed to delete board:', error);
       });
   };
+
   const stopPropagation = event => {
     event.stopPropagation();
     event.preventDefault();
   };
+
   return (
     <div className={css.container}>
       <div className={css.wrapper}>
@@ -46,9 +48,11 @@ export default function BoardCard({ icon, title, id, isActive }) {
           height="18"
           className={clsx(css.icon, isActive && css.activeIcon)}
         />
-        <h4 className={clsx(css.title, { [css.activeTitle]: isActive })}>
-          {title}
-        </h4>
+        <div className={css.cutContainer}>
+          <h4 className={clsx(css.title, { [css.activeTitle]: isActive })}>
+            {title}
+          </h4>
+        </div>
       </div>
       <div className={css.btnWrapper}>
         <button

@@ -14,6 +14,9 @@
 .header {
   padding-left: 30px;
   flex-grow: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .title {
@@ -21,6 +24,9 @@
   font-weight: 500;
   font-size: 18px;
   letter-spacing: -0.02em;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .titleInput {
