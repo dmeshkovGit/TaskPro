@@ -1,0 +1,12 @@
+.bellContainer {
+  display: inline-block;
+  position: relative;
+  padding: 0px;
+  max-height: 16px;
+}
+
+.bellIcon {
+  filter: drop-shadow(0 0 5px #bedbb0);
+  stroke: var(--bell-icon);
+  fill: transparent;
+}

@@ -45,7 +45,8 @@
   --edit-plus: #151515;
   --plus-icon: #ffffff;
   --border-title2: #ffffff;
-  --trash: rgba(22, 22, 22, 0.3);
+  --trash: rgba(255, 255, 255, 0.3);
+  --bell-icon: #bedbb0;
 }
 
 .light {
@@ -84,6 +85,7 @@
   --icon-change: rgba(22, 22, 22, 0.5);
   --trash: rgba(22, 22, 22, 0.3);
   --label: rgba(22, 22, 22, 0.5);
+  --bell-icon: #bedbb0;
 }
 
 .violet {
@@ -128,6 +130,7 @@
   --icon-change: rgba(22, 22, 22, 0.5);
   --trash: rgba(22, 22, 22, 0.3);
   --label: rgba(22, 22, 22, 0.5);
+  --bell-icon: #5255bc;
 }
 
 .dark {
@@ -159,4 +162,5 @@
   --icon-arrow-circle: rgba(255, 255, 255, 0.5);
   --trash: rgba(255, 255, 255, 0.3);
   --label: rgba(255, 255, 255, 0.5);
+  --bell-icon: #bedbb0;
 }
