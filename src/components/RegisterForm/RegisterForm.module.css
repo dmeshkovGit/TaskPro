@@ -1,17 +1,12 @@
 .registerContainer {
-  width: 100vw;
-  height: 100vh;
   background: linear-gradient(#fff, var(--accent-color));
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vh;
 }
 
 .registerWrapper {
-  margin-top: 224px;
-  margin-bottom: 225px;
-  width: calc(100% - 40px); /* Гумова ширина, враховуючи відступи */
-  max-width: 335px;
   height: 363px;
 }
 
@@ -67,10 +62,6 @@
   margin-bottom: 14px;
 }
 
-/* .registerInput + .registerInput {
-  margin-top: 14px;
-} */
-
 .registerButton {
   color: var(--main-background-color);
   background: var(--accent-color);
@@ -109,8 +100,6 @@
 
 @media (min-width: 768px) {
   .loginWrapper {
-    margin-top: 314px;
-    margin-bottom: 315px;
     width: 424px;
     height: 395px;
   }
