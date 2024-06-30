@@ -6,19 +6,26 @@ import { deleteCard } from '../../redux/cards/operations';
 import SwitcherCard from '../SwitcherCard/SwitcherCard';
 import Bell from '../Bell/Bell';
 
+function handleCutText(text, maxLength) {
+  return text.length > maxLength ? text.slice(0, maxLength) + '...' : text;
+}
+
 export default function CardTask({ onEdit, card }) {
   const dispatch = useDispatch();
   const handleRemoveCard = cardId => {
     dispatch(deleteCard(cardId));
   };
 
+  console.log(card.description);
   return (
     <div className={`${styles.card} ${styles[card.priority]}`}>
       <div className={styles.headerWrap}>
         <p className={styles.header}>{card.title}</p>
       </div>
       <div className={styles.descriptionWrap}>
-        <p className={styles.description}>{card.description}</p>
+        <p className={styles.description}>
+          {handleCutText(card.description, 85)}
+        </p>
       </div>
 
       <div className={styles.footer}>
