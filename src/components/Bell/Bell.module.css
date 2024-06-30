@@ -6,7 +6,7 @@
 }
 
 .bellIcon {
-  filter: drop-shadow(0 0 5px #bedbb0);
+  filter: drop-shadow(0 0 1px #bedbb0);
   stroke: var(--bell-icon);
   fill: transparent;
 }

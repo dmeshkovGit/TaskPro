@@ -245,7 +245,7 @@
 }
 
 .iconArrow {
-  fill: var(--accent-color);
+  fill: transparent;
   stroke: var(--accent-color);
   cursor: pointer;
 }
