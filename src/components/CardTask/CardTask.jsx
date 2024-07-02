@@ -16,7 +16,6 @@ export default function CardTask({ onEdit, card }) {
     dispatch(deleteCard(cardId));
   };
 
-  console.log(card.description);
   return (
     <div className={`${styles.card} ${styles[card.priority]}`}>
       <div className={styles.headerWrap}>

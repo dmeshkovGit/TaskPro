@@ -1,7 +1,8 @@
 .card {
+  box-sizing: border-box;
   background-color: var(--cards-color);
   color: var(--border-title);
-  height: 126px;
+  height: 154px;
   padding: 14px 20px 14px 24px;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
@@ -25,8 +26,7 @@
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  line-height: 1.2;
-  height: 21px;
+  min-height: 21px;
   display: flex;
   align-items: center;
 }
@@ -39,15 +39,21 @@
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  font-weight: 600;
+  font-size: 14;
 }
 .descriptionWrap {
+  box-sizing: border-box;
   overflow: hidden;
   /* text-overflow: ellipsis; */
   border-bottom: 1px solid var(--board-title-wrap);
   padding-bottom: 14px;
   margin-bottom: 14px;
+  min-height: 52px;
 }
 .description {
+  display: block;
+  min-height: 38px;
   overflow: hidden;
   text-overflow: ellipsis;
   /* display: -webkit-box;
@@ -55,10 +61,8 @@
   -webkit-box-orient: vertical; */
   font-weight: 400;
   font-size: 12px;
-  letter-spacing: -0.02em;
   color: var(--trash);
-  max-height: calc(1.2em * 2);
-  line-height: 1.2em;
+  line-height: 1.2;
 }
 
 .footer {
