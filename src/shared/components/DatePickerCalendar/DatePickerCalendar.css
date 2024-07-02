@@ -53,7 +53,6 @@
   font-weight: 400;
   line-height: 18px;
   letter-spacing: -0.02em;
-  position: relative;
 }
 
 .react-datepicker__navigation-icon--next {
@@ -102,61 +101,4 @@
 .prevMonth.react-datepicker__day--outside-month {
   color: #ffffff80;
   pointer-events: all;
-}
-
-.react-datepicker__day--selected,
-.react-datepicker__day--keyboard-selected {
-  color: #1f1f1f;
-  position: relative;
-  z-index: 1;
-  border: none;
-  background-color: transparent;
-}
-
-.react-datepicker__day--selected:hover {
-  background-color: transparent;
-}
-
-.react-datepicker__day--selected::before,
-.react-datepicker__day--keyboard-selected::before {
-  content: '';
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background-color: #bedbb0;
-  position: absolute;
-  z-index: -1;
-  top: -3px;
-  left: 1.5px;
-}
-
-.react-datepicker__day:hover {
-  background-color: transparent;
-  color: #1f1f1f;
-  z-index: 1;
-}
-
-.react-datepicker__day:hover.react-datepicker__day::before {
-  content: '';
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background-color: #bedbb0;
-  position: absolute;
-  z-index: -1;
-  top: -3px;
-  left: 1.5px;
-}
-
-#deadline {
-  outline: none;
-  padding: 0;
-  border: none;
-  background: transparent;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 21px;
-  letter-spacing: -0.02em;
-  color: #bedbb0;
-  text-align: start;
 }

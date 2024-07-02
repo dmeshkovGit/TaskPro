@@ -1,5 +1,4 @@
 import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
 import './DatePickerCalendar.css';
 
 export default function DatePickerCalendar({ setDeadline, deadline }) {
@@ -8,7 +7,6 @@ export default function DatePickerCalendar({ setDeadline, deadline }) {
       id="deadline"
       selected={deadline}
       onChange={date => setDeadline(date)}
-      dateFormat={`MMMM d, YYYY   ✎`}
       required
       shouldCloseOnSelect={false}
       showPopperArrow={false}
@@ -17,7 +15,7 @@ export default function DatePickerCalendar({ setDeadline, deadline }) {
           return 'prevMonth';
         }
       }}
-      // fixedHeight
+      fixedHeight
       popperPlacement="top-start"
     />
   );
