@@ -13,12 +13,13 @@ const AddCardModal = ({ id, onClose }) => {
   const dispatch = useDispatch();
   const handleSubmit = e => {
     e.preventDefault();
+    console.log(e.target[6].value);
     const newCard = {
       columnId: id,
       title: e.target[0].value,
       description: e.target[1].value,
       priority: labelColor,
-      deadline: e.target[6].value,
+      deadline: deadline,
     };
     dispatch(addCard(newCard));
     onClose();
@@ -68,12 +69,6 @@ const AddCardModal = ({ id, onClose }) => {
           <label htmlFor="deadline">Deadline</label>
           <div className={styles.dateInput}>
             <DatePickerCalendar deadline={deadline} setDeadline={setDeadline} />
-            <Icon
-              id="icon-arrow-down"
-              width="18"
-              height="18"
-              className={styles.iconArrow}
-            />
           </div>
         </div>
         <button type="submit" className={styles.addButton}>
