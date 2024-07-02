@@ -54,16 +54,19 @@ export const setAvatarUrl = createAsyncThunk(
   'user/setAvatarUrl',
   async (file, thunkAPI) => {
     try {
-      const formData = new FormData();
-      formData.append('avatar', file);
+      if (typeof file === 'string') {
+        return file;
+      } else {
+        const formData = new FormData();
+        formData.append('avatar', file);
+        const response = await instance.put('/users/update', formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        });
 
-      const response = await instance.put('/users/update', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      });
-
-      return response.data.avatarURL;
+        return response.data.avatarURL;
+      }
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
