@@ -68,12 +68,12 @@ const EditCardModal = ({ card, onEditCard, onClose }) => {
           <label htmlFor="deadline">Deadline</label>
           <div className={styles.dateInput}>
             <DatePickerCalendar deadline={deadline} setDeadline={setDeadline} />
-            <Icon
+            {/* <Icon
               id="icon-arrow-down"
               width="18"
               height="18"
               className={styles.iconArrow}
-            />
+            /> */}
           </div>
         </div>
         <button type="submit" className={styles.addButton}>
