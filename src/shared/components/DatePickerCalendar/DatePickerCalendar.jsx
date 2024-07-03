@@ -11,6 +11,7 @@ export default function DatePickerCalendar({ setDeadline, deadline }) {
       dateFormat={`MMMM d, YYYY   ✎`}
       required
       shouldCloseOnSelect={false}
+      className="deadlineInput"
       showPopperArrow={false}
       dayClassName={date => {
         if (date.getDate() > 23) {

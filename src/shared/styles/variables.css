@@ -4,7 +4,7 @@
   --transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   --main-text-color: #ffffff; /* var(--main-text-color) */
-  --second-text-color: rgba(255, 255, 255, 0.5); /* var(--second-text-color) */
+  --second-text-color: #ffffff80; /* var(--second-text-color) */
 
   --accent-color: #bedbb0; /* var(--accent-color) */
   --accent-color-hover: #9dc888;
@@ -26,14 +26,14 @@
     0.3
   ); /* var(--board-section-without-priority) chees*/
 
-  --grey-text: rgba(255, 255, 255, 0.5);
+  --grey-text: #ffffff80;
   --title-reg-log: #ffffff;
   --eye-color: #ffffff;
   --logo: #1f1f1f;
   --logo-fill: #ffffff;
-  --board-title-wrap: rgba(255, 255, 255, 0.2);
+  --board-title-wrap: #ffffff33;
   --border-title: #ffffff;
-  --gray-thema: rgba(255, 255, 255, 0.8);
+  --gray-thema: #ffffffcc;
   --btn-text: #161616;
   --black: #161616;
   --plus: #bedbb0;
@@ -41,7 +41,7 @@
   --side-text: #ffffff;
   --input-text: #ffffff;
   --cards-color: #121212;
-  --icon-change: rgba(255, 255, 255, 0.5);
+  --icon-change: #ffffff80;
   --edit-plus: #151515;
   --plus-icon: #ffffff;
   --border-title2: #ffffff;
@@ -86,6 +86,9 @@
   --trash: rgba(22, 22, 22, 0.3);
   --label: rgba(22, 22, 22, 0.5);
   --bell-icon: #bedbb0;
+  --selected-day-text-colot: #161616;
+  --calendar-line-color: #16161633;
+  --calendar-nav-color: #161616cc;
 }
 
 .violet {
@@ -131,6 +134,9 @@
   --trash: rgba(22, 22, 22, 0.3);
   --label: rgba(22, 22, 22, 0.5);
   --bell-icon: #5255bc;
+  --selected-day-text-colot: #fcfcfc;
+  --calendar-line-color: #16161633;
+  --calendar-nav-color: #161616cc;
 }
 
 .dark {
@@ -163,4 +169,7 @@
   --trash: rgba(255, 255, 255, 0.3);
   --label: rgba(255, 255, 255, 0.5);
   --bell-icon: #bedbb0;
+  --selected-day-text-colot: #1f1f1f;
+  --calendar-line-color: #ffffff33;
+  --calendar-nav-color: #ffffffcc;
 }
