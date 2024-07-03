@@ -5,6 +5,7 @@
   scrollbar-width: thin;
   border: none;
   scrollbar-color: var(--color-scroll) var(--board-title-wrap);
+  width: 335px;
 }
 
 @media only screen and (min-width: 768px) {

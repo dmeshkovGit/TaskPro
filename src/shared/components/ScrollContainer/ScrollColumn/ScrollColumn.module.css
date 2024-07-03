@@ -1,7 +1,6 @@
 .scroll {
   max-height: 478px;
   overflow-y: auto;
-  padding-right: 16px;
   margin-right: -8px;
   scrollbar-width: thin;
   border: none;
