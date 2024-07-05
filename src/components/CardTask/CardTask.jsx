@@ -7,9 +7,8 @@ import SwitcherCard from '../SwitcherCard/SwitcherCard';
 import Bell from '../Bell/Bell';
 
 function handleCutText(text, maxLength) {
-  return text.length > maxLength ? text.slice(0, maxLength) + '...' : text;
+  return text.length <= maxLength ? text : text.slice(0, maxLength) + '...';
 }
-
 export default function CardTask({ onEdit, card }) {
   const dispatch = useDispatch();
   const handleRemoveCard = cardId => {
