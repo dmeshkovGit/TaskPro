@@ -10,9 +10,8 @@
   flex-direction: row;
   align-items: flex-start;
   gap: 20px;
+  overflow: hidden;
   overflow-x: auto;
-  overflow-y: hidden;
-  height: 860px;
   width: 100%;
   padding-bottom: 10px;
 }
