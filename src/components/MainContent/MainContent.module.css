@@ -2,14 +2,14 @@
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  height: 100vh;
-  overflow-x: hidden;
+  overflow: auto;
 }
 .headerWrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 40px;
+  width: 100%;
 }
 @media (min-width: 768px) {
   .headerWrapper {

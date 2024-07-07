@@ -35,24 +35,23 @@ export default function WorkPlace({ id }) {
   const boardColumns = columns.filter(column => column.boardId === id);
 
   return (
-    <div className={css.container}>
-      <div className={css.columns}>
-        {boardColumns.length > 0 ? (
-          boardColumns.map(({ _id, title, cards }) => (
+    <ul className={css.columns}>
+      {boardColumns.length > 0 ? (
+        boardColumns.map(({ _id, title, cards }) => (
+          <li key={_id}>
             <Column
-              key={_id}
               id={_id}
               title={title}
               cards={cards}
               onDelete={() => handleDeleteColumn(_id)}
               onEditTitle={newTitle => handleEditColumnTitle(_id, newTitle)}
             />
-          ))
-        ) : (
-          <AddColumnBtn />
-        )}
-        {boardColumns.length > 0 && <AddColumnBtn />}
-      </div>
-    </div>
+          </li>
+        ))
+      ) : (
+        <AddColumnBtn />
+      )}
+      {boardColumns.length > 0 && <AddColumnBtn />}
+    </ul>
   );
 }

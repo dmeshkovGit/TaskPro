@@ -5,7 +5,12 @@
 }
 
 .cards {
-  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  max-height: 316px;
+  gap: 8px;
+  margin-top: 14px;
+  overflow-y: auto;
 }
 
 .modal {
@@ -24,4 +29,21 @@
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.75);
+}
+@media (min-height: 790px) {
+  .cards {
+    max-height: 478px;
+  }
+}
+
+@media (min-height: 1024px) {
+  .cards {
+    max-height: 640px;
+  }
+}
+
+@media (min-width: 1440px and min-height: 790px) {
+  .cards {
+    max-height: 478px;
+  }
 }

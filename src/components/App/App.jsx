@@ -10,6 +10,7 @@ import { selectIsError } from '../../redux/user/selectors.js';
 import { handleLogOut } from '../../redux/auth/slice.js';
 import { selectIsLoggedIn } from '../../redux/auth/selectors.js';
 import { fetchBoards } from '../../redux/board/operations.js';
+import { selectUser } from '../../redux/user/selectors.js';
 
 const WelcomePage = lazy(() => import('../../pages/WelcomePage/WelcomePage'));
 const AuthPage = lazy(() => import('../../pages/AuthPage'));
@@ -25,6 +26,7 @@ export default function App() {
   const dispatch = useDispatch();
   const isLoggedIn = useSelector(selectIsLoggedIn);
   const isUserError = useSelector(selectIsError);
+  const currentTheme = useSelector(selectUser).theme;
 
   useEffect(() => {
     dispatch(refreshToken());
@@ -44,7 +46,7 @@ export default function App() {
   }, [dispatch, isUserError]);
 
   return (
-    <div>
+    <div className={currentTheme}>
       <Suspense fallback={null}>
         <Routes>
           <Route path="/" element={<Navigate to="/welcome" />} />

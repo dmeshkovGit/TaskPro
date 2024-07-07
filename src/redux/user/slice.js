@@ -20,11 +20,6 @@ const userSlice = createSlice({
     error: null,
     success: false,
   },
-  reducers: {
-    setTheme: (state, action) => {
-      state.user.theme = action.payload;
-    },
-  },
   extraReducers: builder => {
     builder
       .addCase(needHelp.pending, state => {
@@ -40,8 +35,9 @@ const userSlice = createSlice({
       .addCase(updateUserTheme.pending, state => {
         state.loading = true;
       })
-      .addCase(updateUserTheme.fulfilled, state => {
+      .addCase(updateUserTheme.fulfilled, (state, action) => {
         state.loading = false;
+        state.user.theme = action.payload.theme;
       })
       .addCase(updateUserTheme.rejected, state => {
         state.loading = false;
@@ -82,4 +78,3 @@ const userSlice = createSlice({
 });
 
 export default userSlice.reducer;
-export const { setTheme } = userSlice.actions;

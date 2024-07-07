@@ -32,8 +32,8 @@ const slice = createSlice({
       })
       .addCase(fetchAllCards.fulfilled, (state, action) => {
         state.loading = false;
-        action.payload.map(card => {
-          state.items.push(card);
+        action.payload.map(newCard => {
+          state.items.push(newCard);
         });
       })
       .addCase(fetchAllCards.rejected, state => {

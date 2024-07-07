@@ -1,8 +1,6 @@
 @media (min-width: 320px) {
   .wrap_title {
     border-radius: 8px;
-    margin-top: 14px;
-    margin-left: 24px;
     display: flex;
     text-align: center;
     align-items: center;
