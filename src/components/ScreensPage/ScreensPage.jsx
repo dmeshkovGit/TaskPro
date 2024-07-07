@@ -33,7 +33,6 @@ export default function ScreensPage({ children }) {
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     height: '100vh',
-    width: '100%',
     position: 'relative',
   };
   return (

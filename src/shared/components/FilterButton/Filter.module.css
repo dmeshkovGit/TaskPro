@@ -1,8 +1,7 @@
 .filterBtn {
   display: flex;
-  margin-right: 20px;
   margin-left: auto;
-  margin-top: 14px;
+  /* margin-top: 14px; */
   color: var(--input-text);
   background-color: inherit;
   border: none;
@@ -32,9 +31,8 @@
 @media (min-width: 768px) {
   .filterBtn {
     display: flex;
-    margin-right: 32px;
     margin-left: auto;
-    margin-top: 20px;
+    /* margin-top: 20px; */
   }
 }
 

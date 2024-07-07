@@ -1,21 +1,14 @@
 import { useState, useEffect, useRef } from 'react';
 import styles from './ThemeSwitcher.module.css';
 import Icon from '../../../shared/components/Icon/Icon';
-import List from '../../../shared/components/List/List';
-import data from './data/theme.json';
-import Theme from './Theme';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { updateUserTheme } from '../../../redux/user/operations';
-import { selectUser } from '../../../redux/user/selectors';
-import { setTheme } from '../../../redux/user/slice';
 
 const ThemeSwitcher = () => {
   const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
-  const themes = [...data];
-  const user = useSelector(selectUser);
-  const currentTheme = user.theme; // 'light'
+  const themes = ['Dark', 'Light', 'Violet'];
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -35,15 +28,7 @@ const ThemeSwitcher = () => {
     };
   }, []);
 
-  useEffect(() => {
-    if (currentTheme) {
-      document.body.classList.remove(...themes);
-      document.body.classList.add(currentTheme);
-    }
-  }, [currentTheme, themes]);
-
   const handleThemeChange = theme => {
-    dispatch(setTheme(theme));
     dispatch(updateUserTheme(theme));
     setIsOpen(false);
   };
@@ -61,13 +46,17 @@ const ThemeSwitcher = () => {
       </button>
       {isOpen && (
         <div className={styles.dropdownMenu}>
-          <List className={styles.ThemeList}>
+          <ul className={styles.ThemeList}>
             {themes.map(item => (
-              <li key={item} onClick={() => handleThemeChange(item)}>
-                <Theme data={item} className={styles.themeItem} />
+              <li
+                className={styles.themeItem}
+                key={item}
+                onClick={() => handleThemeChange(item.toLowerCase())}
+              >
+                {item}
               </li>
             ))}
-          </List>
+          </ul>
         </div>
       )}
     </div>

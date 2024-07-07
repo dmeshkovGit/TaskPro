@@ -1,11 +1,5 @@
-import Container from "../Container/Container";
-
-import css from "./Layout.module.css";
+import css from './Layout.module.css';
 
 export default function Layout({ children }) {
-  return (
-    <div>
-      <Container className={css.wrapper}>{children}</Container>
-    </div>
-  );
+  return <div className={css.wrapper}>{children}</div>;
 }
