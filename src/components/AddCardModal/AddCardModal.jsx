@@ -6,6 +6,7 @@ import '../../shared/styles/variables.css';
 import { useDispatch } from 'react-redux';
 import { addCard } from '../../redux/cards/operations';
 import DatePickerCalendar from '../../shared/components/DatePickerCalendar/DatePickerCalendar';
+import clsx from 'clsx';
 
 const AddCardModal = ({ id, onClose }) => {
   const [labelColor, setLabelColor] = useState('without');
@@ -50,10 +51,19 @@ const AddCardModal = ({ id, onClose }) => {
             {['low', 'medium', 'high', 'without'].map(color => (
               <label
                 key={color}
-                className={`${styles.priority} ${styles[color]} ${
-                  labelColor === color ? styles.selected : ''
-                }`}
+                className={clsx(
+                  styles.labelColor,
+                  styles[color],
+                  labelColor === color && styles.selected,
+                )}
               >
+                <span
+                  className={clsx(
+                    styles.customRadioDot,
+                    styles[color],
+                    labelColor === color && styles.selected,
+                  )}
+                ></span>
                 <input
                   checked={labelColor === color}
                   value={color}

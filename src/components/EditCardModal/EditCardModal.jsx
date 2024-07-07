@@ -3,11 +3,12 @@ import Icon from '../../shared/components/Icon/Icon';
 import styles from './EditCardModal.module.css';
 import '../../shared/styles/variables.css';
 import DatePickerCalendar from '../../shared/components/DatePickerCalendar/DatePickerCalendar';
+import clsx from 'clsx';
 
 const EditCardModal = ({ card, onEditCard, onClose }) => {
   const [title, setTitle] = useState(card.title);
   const [description, setDescription] = useState(card.description);
-  const [labelColor, setLabelColor] = useState(card.labelColor || 'without');
+  const [labelColor, setLabelColor] = useState(card.priority);
   const [deadline, setDeadline] = useState(new Date(card.deadline));
 
   const handleSubmit = e => {
@@ -49,11 +50,21 @@ const EditCardModal = ({ card, onEditCard, onClose }) => {
             {['low', 'medium', 'high', 'without'].map(color => (
               <label
                 key={color}
-                className={`${styles.labelColor} ${styles[color]} ${
-                  labelColor === color ? styles.selected : ''
-                }`}
+                className={clsx(
+                  styles.labelColor,
+                  styles[color],
+                  labelColor === color && styles.selected,
+                )}
               >
+                <span
+                  className={clsx(
+                    styles.customRadioDot,
+                    styles[color],
+                    labelColor === color && styles.selected,
+                  )}
+                ></span>
                 <input
+                  className={styles.radioInput}
                   type="radio"
                   name="labelColor"
                   value={color}
