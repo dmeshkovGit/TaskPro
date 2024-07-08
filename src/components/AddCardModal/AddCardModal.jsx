@@ -20,6 +20,12 @@ const AddCardModal = ({ id, onClose }) => {
     async e => {
       e.preventDefault();
 
+      // Перевірка наявності референсів перед доступом до них
+      if (!titleRef.current || !descriptionRef.current) {
+        console.error('titleRef or descriptionRef is not assigned yet');
+        return;
+      }
+
       const newCard = {
         columnId: id,
         title: titleRef.current.value,
@@ -60,6 +66,7 @@ const AddCardModal = ({ id, onClose }) => {
             placeholder="Title"
             required
             autoFocus
+            ref={titleRef}
             aria-label="Title"
           />
         </div>
