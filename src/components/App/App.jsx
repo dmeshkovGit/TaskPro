@@ -33,8 +33,10 @@ export default function App() {
   }, [dispatch]);
 
   useEffect(() => {
-    document.body.classList.remove('dark', 'light', 'violet');
-    document.body.classList.add(currentTheme);
+    if (currentTheme) {
+      document.body.classList.remove('dark', 'light', 'violet');
+      document.body.classList.add(currentTheme);
+    }
   }, [currentTheme]);
 
   useEffect(() => {
