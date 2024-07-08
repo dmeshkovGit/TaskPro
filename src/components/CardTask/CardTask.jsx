@@ -11,6 +11,7 @@ function handleCutText(text, maxLength) {
 }
 export default function CardTask({ onEdit, card }) {
   const dispatch = useDispatch();
+
   const handleRemoveCard = cardId => {
     dispatch(deleteCard(cardId));
   };
@@ -48,7 +49,7 @@ export default function CardTask({ onEdit, card }) {
         </div>
         <div className={styles.actions}>
           <Bell deadline={card.deadline} />
-          <SwitcherCard />
+          <SwitcherCard card={card} />
           <button className={styles.actionButton} onClick={onEdit}>
             <Icon
               id="icon-pencil"

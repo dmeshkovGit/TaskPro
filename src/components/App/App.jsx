@@ -33,6 +33,11 @@ export default function App() {
   }, [dispatch]);
 
   useEffect(() => {
+    document.body.classList.remove('dark', 'light', 'violet');
+    document.body.classList.add(currentTheme);
+  }, [currentTheme]);
+
+  useEffect(() => {
     if (isLoggedIn) {
       dispatch(refreshUser());
       dispatch(fetchBoards());
@@ -46,7 +51,7 @@ export default function App() {
   }, [dispatch, isUserError]);
 
   return (
-    <div className={currentTheme}>
+    <div>
       <Suspense fallback={null}>
         <Routes>
           <Route path="/" element={<Navigate to="/welcome" />} />
