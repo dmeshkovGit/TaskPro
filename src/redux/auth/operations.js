@@ -57,10 +57,15 @@ export const refreshToken = createAsyncThunk(
         return thunkApi.rejectWithValue('Token is missing');
       }
       setAuthHeader(savedToken);
-      const persistedToken = JSON.parse(
-        JSON.parse(window.localStorage.getItem('persist:auth')).token,
+      const persistedAuth = JSON.parse(
+        window.localStorage.getItem('persist:auth'),
       );
-      return persistedToken;
+      if (persistedAuth && persistedAuth.token) {
+        const persistedToken = JSON.parse(persistedAuth.token);
+        return persistedToken;
+      } else {
+        return thunkApi.rejectWithValue('Persisted token is missing');
+      }
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
     }

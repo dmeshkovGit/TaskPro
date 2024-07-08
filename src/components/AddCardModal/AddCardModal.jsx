@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import 'react-datepicker/dist/react-datepicker.css';
 import Icon from '../../shared/components/Icon/Icon';
 import styles from './AddCardModal.module.css';
@@ -12,23 +12,49 @@ const AddCardModal = ({ id, onClose }) => {
   const [labelColor, setLabelColor] = useState('without');
   const [deadline, setDeadline] = useState(new Date());
   const dispatch = useDispatch();
-  const handleSubmit = e => {
-    e.preventDefault();
-    console.log(e.target[6].value);
-    const newCard = {
-      columnId: id,
-      title: e.target[0].value,
-      description: e.target[1].value,
-      priority: labelColor,
-      deadline: deadline,
-    };
-    dispatch(addCard(newCard));
-    onClose();
-  };
+
+  const titleRef = useRef(null);
+  const descriptionRef = useRef(null);
+
+  const handleSubmit = useCallback(
+    async e => {
+      e.preventDefault();
+
+      // Перевірка наявності референсів перед доступом до них
+      if (!titleRef.current || !descriptionRef.current) {
+        console.error('titleRef or descriptionRef is not assigned yet');
+        return;
+      }
+
+      const newCard = {
+        columnId: id,
+        title: titleRef.current.value,
+        description: descriptionRef.current.value,
+        priority: labelColor,
+        deadline,
+      };
+
+      try {
+        await dispatch(addCard(newCard));
+        onClose();
+      } catch (error) {
+        console.error('Failed to add card:', error);
+      }
+    },
+    [id, labelColor, deadline, dispatch, onClose],
+  );
+
+  const handleLabelColorChange = useCallback(color => {
+    setLabelColor(color);
+  }, []);
 
   return (
     <div className={styles.addCardForm}>
-      <button onClick={onClose} className={styles.closeButton}>
+      <button
+        onClick={onClose}
+        className={styles.closeButton}
+        aria-label="Close modal"
+      >
         <Icon id="icon-close" width="16" height="16" className={styles.icon} />
       </button>
       <div className={styles.title}>Add card</div>
@@ -40,10 +66,18 @@ const AddCardModal = ({ id, onClose }) => {
             placeholder="Title"
             required
             autoFocus
+            ref={titleRef}
+            aria-label="Title"
           />
         </div>
         <div className={styles.formGroupDescription}>
-          <textarea id="description" placeholder="Description" required />
+          <textarea
+            id="description"
+            ref={descriptionRef}
+            placeholder="Description"
+            required
+            aria-label="Description"
+          />
         </div>
         <div className={styles.formGroupLabelcolor}>
           <label>Label color</label>
@@ -69,7 +103,8 @@ const AddCardModal = ({ id, onClose }) => {
                   value={color}
                   type="radio"
                   name="labelColor"
-                  onChange={() => setLabelColor(color)}
+                  onChange={() => handleLabelColorChange(color)}
+                  aria-label={`Label color ${color}`}
                 />
               </label>
             ))}
