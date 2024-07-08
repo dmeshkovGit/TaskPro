@@ -1,7 +1,6 @@
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import './DatePickerCalendar.css';
-import { date } from 'yup';
 
 const isLessThan24Hours = date => {
   const now = new Date();
