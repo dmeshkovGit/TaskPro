@@ -8,14 +8,16 @@ import {
 } from './operations';
 import { logOut } from '../auth/operations';
 
+const initialState = {
+  items: [],
+  currentBoard: '',
+  loading: false,
+  error: null,
+};
+
 const slice = createSlice({
   name: 'boards',
-  initialState: {
-    items: [],
-    currentBoard: '',
-    loading: false,
-    error: null,
-  },
+  initialState,
   reducers: {
     resetCurrentBoard(state) {
       state.currentBoard = '';
@@ -23,7 +25,7 @@ const slice = createSlice({
   },
   extraReducers: builder =>
     builder
-      .addCase(fetchBoards.pending, (state, action) => {
+      .addCase(fetchBoards.pending, state => {
         state.loading = true;
       })
       .addCase(fetchBoards.fulfilled, (state, action) => {
@@ -34,7 +36,7 @@ const slice = createSlice({
         state.loading = false;
         state.error = action.error.message;
       })
-      .addCase(addBoard.pending, (state, action) => {
+      .addCase(addBoard.pending, state => {
         state.loading = true;
       })
       .addCase(addBoard.fulfilled, (state, action) => {
@@ -56,7 +58,7 @@ const slice = createSlice({
         state.loading = false;
         state.error = action.error.message;
       })
-      .addCase(deleteBoard.pending, (state, action) => {
+      .addCase(deleteBoard.pending, state => {
         state.loading = true;
       })
       .addCase(deleteBoard.fulfilled, (state, action) => {
