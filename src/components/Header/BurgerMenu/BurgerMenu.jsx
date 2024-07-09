@@ -23,7 +23,7 @@ export default function BurgerMenu() {
           className={styles.burgerMenu}
         />
       </button>
-      {sidebar && screenWidth < 1024 && (
+      {sidebar && screenWidth < 1440 && (
         <div className={styles.backdrop} onClick={handleClick}></div>
       )}
     </div>
