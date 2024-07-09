@@ -1,21 +1,21 @@
 .textContainer {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
 }
 .text {
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: 248px;
-	width: 486px;
-	text-align: center;
-	font-size: 14px;
-	color: var(--second-text-color);
-	font-weight: 400;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 248px;
+  max-width: 486px;
+  text-align: center;
+  font-size: 14px;
+  color: var(--second-text-color);
+  font-weight: 400;
 }
 .markText {
-	color: var(--accent-color);
-	margin-left: 4px;
-	margin-right: 4px;
+  color: var(--accent-color);
+  margin-left: 4px;
+  margin-right: 4px;
 }
